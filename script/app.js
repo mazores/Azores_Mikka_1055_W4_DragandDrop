@@ -9,10 +9,20 @@
 
 	let draggablePieces = document.querySelectorAll(".puzzle-pieces img");
 
-	debugger;
+	//debugger;
 
 	function switchImage() {
 		console.log(this);
+
+
+	//grab corresponding bg image (0, 1, 2, or 3)
+	//and get from images folder (backGround1.jpg as an example)
+		let bgImage = `./images/backGround${this.dataset.puzzleref}.jpg`;
+
+	//set bg image style on dropzone container
+		puzzleBoard.style.backgroundImage = `url(${bgImage})`;
+	
+		debugger;
 	}
 
 	// thumbnail can be changed
