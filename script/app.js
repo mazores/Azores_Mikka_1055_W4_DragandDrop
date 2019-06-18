@@ -9,7 +9,10 @@
 
 	let draggablePieces = document.querySelectorAll(".puzzle-pieces img");
 
-	//debugger;
+	// arrays are indexed and start at 0
+	const imageNameArray = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
+
+	debugger;
 
 	function switchImage() {
 		console.log(this);
@@ -51,7 +54,8 @@
 	
 	//allows user to drop element
 		zone.addEventListener("drop", function(e) { 
-			e.preventDefault();
+			e.preventDefault(); // don't do your default behaviou, instead do ff:
+
 			console.log('u dropped sumpin on me');
 
 			let draggedElement = e.dataTransfer.getData("text/plain");
