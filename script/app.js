@@ -12,7 +12,7 @@
 	// arrays are indexed and start at 0
 	const imageNameArray = ["topLeft", "topRight", "bottomLeft", "bottomRight"];
 
-	debugger;
+	//debugger;
 
 	function switchImage() {
 		console.log(this);
@@ -25,7 +25,18 @@
 	//set bg image style on dropzone container
 		puzzleBoard.style.backgroundImage = `url(${bgImage})`;
 	
-		debugger;
+		//debugger;
+		//work on switching the right-hand images so that they match the buttons at the bottom
+		//draggablepieces = image getting dragged, 4 thumbnails
+		//just wanna see whats in the array
+		draggablePieces.forEach((image, index) => {
+			// log the image and the current index
+			console.log(image, index);
+
+			//try to change image source
+			image.src = `images/${imageNameArray[index]}${this.dataset.puzzleref}.jpg`;
+			debugger;
+		});
 	}
 
 	// thumbnail can be changed
