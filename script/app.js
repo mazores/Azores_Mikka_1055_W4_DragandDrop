@@ -23,7 +23,7 @@
 		let bgImage = `./images/backGround${this.dataset.puzzleref}.jpg`;
 
 	//set bg image style on dropzone container
-		puzzleBoard.style.backgroundImage = `url(${bgImage})`;
+		puzzleBoard.style.backgroundImage = `url(${bgImage})`; 
 	
 		//debugger;
 		//work on switching the right-hand images so that they match the buttons at the bottom
@@ -65,16 +65,21 @@
 	
 	//allows user to drop element
 		zone.addEventListener("drop", function(e) { 
-			e.preventDefault(); // don't do your default behaviou, instead do ff:
-
-			console.log('u dropped sumpin on me');
-
 			let draggedElement = e.dataTransfer.getData("text/plain");
 			console.log('you dragged:', draggedElement);
 
-			//add image to drop zone when img is dragged over drop zone it becomes a child of the drop
-			e.target.appendChild(document.querySelector(`#${draggedElement}`));
+			if (this.children.length > 0) {
+				console.log('Oops, I already have a puzzle piece!');
+				return;
+			} else {
+				e.preventDefault(); // don't do your default behaviou, instead do ff:
+				console.log('u dropped sumpin on me');
+
+				//add image to drop zone when img is dragged over drop zone it becomes a child of the drop
+				e.target.appendChild(document.querySelector(`#${draggedElement}`));				
+				//console.log(e.target.childElementCount);
+			}
 		});
 	})
 
-})();
+})(); 
